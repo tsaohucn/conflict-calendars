@@ -1,8 +1,6 @@
 # Conflict::Calendars
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/conflict/calendars`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The gem help you find the conflict-calendars from calendars
 
 ## Installation
 
@@ -22,8 +20,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First you should create Ccs::Calendar object by this way
 
+```ruby
+calendar_A = Ccs::Calendar.new("enter the name of calendar",Time.new(2016,12,10,8,0),Time.new(2016,12,10,13,0)
+=>#<Ccs::Calendar:0x007f9892be85e8 @name="enter the name of calendar", @start_time=2016-12-10 08:00:00 +0800, @end_time=2016-12-10 13:00:00 +0800>
+```
+```ruby
+calendar_B = Ccs::Calendar.new(Time.new(2016,12,10,9,0),Time.new(2016,12,10,10,30))
+=>#<Ccs::Calendar:0x007fa36c55bf38 @name=nil, @start_time=2016-12-10 09:00:00 +0800, @end_time=2016-12-10 10:30:00 +0800>
+```
+And then you can find the conflicts by this way
+
+```ruby
+conflicts = Ccs::Conflicts.new(calendar_A,calendar_B)
+conflicts.size #=> 1
+conflicts.each do |conflict|
+  p conflict #=> #<Set: {#<Ccs::Calendar:0x007fb..>, #<Ccs::Calendar:0x007fc..>} >
+end
+```
+Now, you can know there are exist two calendars that conflict in the same set.
+So, you can do that :
+
+```ruby
+conflict.each do |calendar|
+  p calendar #=> #<Ccs::Calendar:0x007fb..>
+  p calendar.name #=> "enter the name of calendar"
+  p calendar.start_time #=> "2016-12-10 08:00:00 +0800"
+  p calendar.end_time #=> "2016-12-10 13:00:00 +0800"
+end
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
