@@ -8,3 +8,5 @@
 /spec/reports/
 /tmp/
 /.DS_Store
+/lib/.DS_Store
+/lib/conflict/.DS_Store
