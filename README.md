@@ -24,11 +24,11 @@ First you should create Ccs::Calendar object by this way
 
 ```ruby
 calendar_A = Ccs::Calendar.new("enter the name of calendar",Time.new(2016,12,10,8,0),Time.new(2016,12,10,13,0)
-=>#<Ccs::Calendar:0x007f9892be85e8 @name="enter the name of calendar", @start_time=2016-12-10 08:00:00 +0800, @end_time=2016-12-10 13:00:00 +0800>
+#=> #<Ccs::Calendar:0x007f9892be85e8 @name="enter the name of calendar", @start_time=2016-12-10 08:00:00 +0800, @end_time=2016-12-10 13:00:00 +0800>
 ```
 ```ruby
 calendar_B = Ccs::Calendar.new(Time.new(2016,12,10,9,0),Time.new(2016,12,10,10,30))
-=>#<Ccs::Calendar:0x007fa36c55bf38 @name=nil, @start_time=2016-12-10 09:00:00 +0800, @end_time=2016-12-10 10:30:00 +0800>
+#=> #<Ccs::Calendar:0x007fa36c55bf38 @name=nil, @start_time=2016-12-10 09:00:00 +0800, @end_time=2016-12-10 10:30:00 +0800>
 ```
 And then you can find the conflicts by this way
 
