@@ -1,9 +1,8 @@
 require "conflict/calendars/version"
 require "set"
 
-module Conflict
-  module Calendars
-	
+module Ccs
+
 	class Calendar
 
 		attr_reader :name, :start_time, :end_time
@@ -15,7 +14,6 @@ module Conflict
 		end
 
 	end
-
 
   class Conflicts
 
@@ -60,6 +58,7 @@ module Conflict
   end
 
 	class Graph
+
 	  def initialize(edges)
 	    @edges = edges
 	  end
@@ -95,7 +94,7 @@ module Conflict
 	      xe |= [ve]
 	    end
 	  end
-	end  
+	  
+	end 
 
-end
 end
