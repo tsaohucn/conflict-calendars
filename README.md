@@ -1,4 +1,4 @@
-# Conflict::Calendars
+# conflict-calendars
 
 The gem help you find the conflict-calendars from calendars
 
