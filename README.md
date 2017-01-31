@@ -19,8 +19,13 @@ Or install it yourself as:
     $ gem install conflict-calendars
 
 ## Usage
+First you should require the library
 
-First you should create Ccs::Calendar object by this way
+```ruby
+require "conflict/calendars"
+```
+
+Then you can create Ccs::Calendar object by this way
 
 ```ruby
 calendar_A = Ccs::Calendar.new("enter the name of calendar",Time.new(2016,12,10,8,0),Time.new(2016,12,10,13,0)
@@ -30,7 +35,7 @@ calendar_A = Ccs::Calendar.new("enter the name of calendar",Time.new(2016,12,10,
 calendar_B = Ccs::Calendar.new(Time.new(2016,12,10,9,0),Time.new(2016,12,10,10,30))
 #=> #<Ccs::Calendar:0x007fa36c55bf38 @name=nil, @start_time=2016-12-10 09:00:00 +0800, @end_time=2016-12-10 10:30:00 +0800>
 ```
-And then you can find the conflicts by this way
+Then you can find the conflicts by this way
 
 ```ruby
 conflicts = Ccs::Conflicts.new(calendar_A,calendar_B)
@@ -39,8 +44,7 @@ conflicts.each do |conflict|
   p conflict #=> #<Set: {#<Ccs::Calendar:0x007fb..>, #<Ccs::Calendar:0x007fc..>} >
 end
 ```
-Now, you can know there are exist two calendars that conflict in the same set.
-So, you can do that :
+Now, you know there are exist two calendars that conflict in the same set. So, you can get each information of calendar by this way :
 
 ```ruby
 conflict.each do |calendar|
