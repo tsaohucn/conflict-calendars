@@ -1,6 +1,8 @@
 require "conflict/calendars/version"
+require "set"
 
-module Ccs
+module Conflict
+  module Calendars
 	
 	class Calendar
 
@@ -33,7 +35,7 @@ module Ccs
 				calendar_first = comb.first
 				calendar_last = comb.last
 				comb if overlaps(calendar_first.start_time,calendar_first.end_time,calendar_last.start_time,calendar_last.end_time)
-			end.compact!
+			end.compact
 			@conflicts = Graph.new(result).find_maximum_cliques
 		end
 
@@ -95,4 +97,5 @@ module Ccs
 	  end
 	end  
 
+end
 end
