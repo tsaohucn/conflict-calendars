@@ -55,10 +55,10 @@ Then you can get each information of calendar by this way :
 conflicts.each do |conflict|
   p conflict #=> <Set: {#<Ccs::Calendar:0x007fb..>, #<Ccs::Calendar:0x007fc..>} >
   conflict.each do |calendar|
-  	p calendar #=> <Ccs::Calendar>
-  	puts calendar.calendarname #=> "calendarname"
-  	puts calendar.stime #=> 2016-12-10 09:00
-  	puts calendar.etime #=> 2016-12-10 10:30
+    p calendar #=> <Ccs::Calendar>
+    puts calendar.calendarname #=> "calendarname"
+    puts calendar.stime #=> 2016-12-10 09:00
+    puts calendar.etime #=> 2016-12-10 10:30
   end
 end
 ```
