@@ -5,7 +5,7 @@ require 'conflict/calendars/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "conflict-calendars"
-  spec.version       = Conflict::Calendars::VERSION
+  spec.version       = Ccs::VERSION
   spec.authors       = ["Tsao"]
   spec.email         = ["tsaohucn@gmail.com"]
 

@@ -1,6 +1,9 @@
-# conflict-calendars
+# Conflict Calendars
 
-The gem help you find the conflict-calendars from calendars
+The gem help people find the conflicting calendars from given calendars
+
+## Welcome for PR
+The gem need extend and raise, if you have any interests, welocome pull request.
 
 ## Installation
 
@@ -19,41 +22,47 @@ Or install it yourself as:
     $ gem install conflict-calendars
 
 ## Usage
-First you should require the library
+Require the library first
 
 ```ruby
 require "conflict/calendars"
 ```
 
-Then you can create Ccs::Calendar object by this way
+Create calendar object by this way, you can type the name of calendar or not.
 
 ```ruby
-calendar_A = Ccs::Calendar.new("enter the name of calendar",Time.new(2016,12,10,8,0),Time.new(2016,12,10,13,0)
-#=> #<Ccs::Calendar:0x007f9892be85e8 @name="enter the name of calendar", @start_time=2016-12-10 08:00:00 +0800, @end_time=2016-12-10 13:00:00 +0800>
+calendar_A = Ccs::Calendar.new("enter the name of calendar", ,"2016-12-10 08:00", "2016-12-10 13:00")
+calendar_B = Ccs::Calendar.new("2016-12-10 09:00", "2016-12-10 10:30")
+calendar_C = Ccs::Calendar.new("2016-12-10 10:00", "2016-12-10 12:30")
+calendar_D = Ccs::Calendar.new("2016-12-10 15:00", "2016-12-10 17:30")
+calendar_E = Ccs::Calendar.new("2016-12-10 15:20", "2016-12-10 16:30")
 ```
-```ruby
-calendar_B = Ccs::Calendar.new(Time.new(2016,12,10,9,0),Time.new(2016,12,10,10,30))
-#=> #<Ccs::Calendar:0x007fa36c55bf38 @name=nil, @start_time=2016-12-10 09:00:00 +0800, @end_time=2016-12-10 10:30:00 +0800>
-```
-Then you can find the conflicts by this way
+Over here we have five calendars, we wanna know who are conflicting? 
+So we just do that :
 
 ```ruby
-conflicts = Ccs::Conflicts.new(calendar_A,calendar_B)
-conflicts.size #=> 1
+conflicts = Ccs::Conflicts.new(calendar_A,calendar_B,calendar_C,calendar_D,calendar_E)
+
+p conflicts #=> <Ccs::Conflict:0x007fba211e9d20 {2}>
+
+puts conflicts.size #=> 2
+```
+
+Now, you know there are exist two conflicting sets.
+Then you can get each information of calendar by this way :
+
+```ruby
 conflicts.each do |conflict|
-  p conflict #=> #<Set: {#<Ccs::Calendar:0x007fb..>, #<Ccs::Calendar:0x007fc..>} >
+  p conflict #=> <Set: {#<Ccs::Calendar:0x007fb..>, #<Ccs::Calendar:0x007fc..>} >
+  conflict.each do |calendar|
+  	p calendar #=> <Ccs::Calendar>
+  	puts calendar.calendarname #=> "calendarname"
+  	puts calendar.stime #=> 2016-12-10 09:00
+  	puts calendar.etime #=> 2016-12-10 10:30
+  end
 end
 ```
-Now, you know there are exist two calendars that conflict in the same set. So, you can get each information of calendar by this way :
 
-```ruby
-conflict.each do |calendar|
-  p calendar #=> #<Ccs::Calendar:0x007fb..>
-  p calendar.name #=> "enter the name of calendar"
-  p calendar.start_time #=> "2016-12-10 08:00:00 +0800"
-  p calendar.end_time #=> "2016-12-10 13:00:00 +0800"
-end
-```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
