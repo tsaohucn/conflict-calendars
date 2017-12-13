@@ -1,5 +1,4 @@
 module Ccs
-
   class Calendar
 
     attr_reader :calendarname, :stime, :etime
@@ -11,5 +10,4 @@ module Ccs
     end
 
   end
-
 end
