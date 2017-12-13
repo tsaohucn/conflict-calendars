@@ -1,5 +1,4 @@
 module Ccs
-
   class Graph
 
     def initialize(edges)
@@ -39,5 +38,4 @@ module Ccs
     end
     
   end
-
 end
