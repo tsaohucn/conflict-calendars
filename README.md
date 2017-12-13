@@ -41,7 +41,7 @@ Over here we have five calendars, we wanna know who are conflicting?
 So we just do that :
 
 ```ruby
-conflicts = Ccs::Conflicts.new(calendar_A,calendar_B,calendar_C,calendar_D,calendar_E)
+conflicts = Ccs::Conflict.new(calendar_A,calendar_B,calendar_C,calendar_D,calendar_E)
 
 p conflicts #=> <Ccs::Conflict:0x007fba211e9d20 {2}>
 
