@@ -1,6 +1,6 @@
 module Ccs
 
-  class Conflicts
+  class Conflict
 
     include Enumerable
 
