@@ -1,5 +1,4 @@
 module Ccs
-
   class Conflict
 
     include Enumerable
@@ -41,5 +40,4 @@ module Ccs
     end
 
   end
-
 end
